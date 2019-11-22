@@ -66,8 +66,9 @@
             <table>
                 <tr>
                     <td><input class="btn" type="button" value="C" onclick="clearAll()"></td>
-                    <td><input class="btn" type="button" value="CE"></td>
+                    <!--<td><input class="btn" type="button" value="CE"></td>-->
                     <td><input class="btn" type="button" value="&larr;" onclick="back()"></td>
+                    <td><input class="btn" type="button" value="&#177;" onclick="signChange()"></td>
                     <td><input class="btn" type="button" value="&#247;"onclick="insert('/')"></td>
                 </tr>
                 <tr>
@@ -89,7 +90,7 @@
                     <td><input class="btn" type="button" value="+" onclick="insert('+')"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="&#177;" onclick="signChange()"></td>
+                    <td><input class="btn" type="button" disabled value=""></td>
                     <td><input class="btn" type="button" value="0" onclick="insert(0)"></td>
                     <td><input class="btn" type="button" value="." onclick="insert('.')"></td>
                     <td><input class="btn" type="button" value="=" onclick="equal()"></td>
