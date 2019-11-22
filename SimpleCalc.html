@@ -4,6 +4,23 @@
             function insert(num){
                 document.form.textview.value = document.form.textview.value + num;
             }
+            function back(){
+                var input = document.form.textview.value;
+                document.form.textview.value = input.substring(0, input.length - 1 );
+            }
+            function clearAll(){
+                document.form.textview.value = "";
+            }
+            function equal(){
+                var input = document.form.textview.value;
+                if(input){
+                    document.form.textview.value = eval(input);
+                }
+            }
+            function signChange(){
+                var input = document.form.textview.value;
+                document.form.textview.value = input * -1;
+            }
         </script>
         <style>
             *{
@@ -16,33 +33,48 @@
                 font-size: 25;
                 margin: 2;
                 cursor: pointer;
+                background: #607d8b;
+                border: none;
             }
             .textview{
                 width: 217;
                 margin: 5;
                 font-size: 25;
                 padding: 5;
+                color: #607d8b;
+                border: none;
+            }
+            .main{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%)translateY(-50%);
+            }
+            .bg{
+                background: linear-gradient(to top, #ebc0fd, #d9ded8);
+                height: 100%;
             }
         </style>
         <title>Simple Calculator</title>
     </head>
     <body>
+        <div class="bg"></div>
         <div class="main">
             <form name="form">
                 <input class="textview" name="textview"> <!--Input Line-->
             </form>
             <table>
                 <tr>
-                    <td><input class="btn" type="button" value="C"></td>
+                    <td><input class="btn" type="button" value="C" onclick="clearAll()"></td>
                     <td><input class="btn" type="button" value="CE"></td>
-                    <td><input class="btn" type="button" value="&larr;"></td>
+                    <td><input class="btn" type="button" value="&larr;" onclick="back()"></td>
                     <td><input class="btn" type="button" value="&#247;"onclick="insert('/')"></td>
                 </tr>
                 <tr>
                     <td><input class="btn" type="button" value="7" onclick="insert(7)"></td>
                     <td><input class="btn" type="button" value="8" onclick="insert(8)"></td>
                     <td><input class="btn" type="button" value="9" onclick="insert(9)"></td>
-                    <td><input class="btn" type="button" value="&#215;" onclick="insert('x')"></td>
+                    <td><input class="btn" type="button" value="&#215;" onclick="insert('*')"></td>
                 </tr>
                 <tr>
                     <td><input class="btn" type="button" value="4" onclick="insert(4)"></td>
@@ -57,10 +89,10 @@
                     <td><input class="btn" type="button" value="+" onclick="insert('+')"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="&#177;"></td>
+                    <td><input class="btn" type="button" value="&#177;" onclick="signChange()"></td>
                     <td><input class="btn" type="button" value="0" onclick="insert(0)"></td>
-                    <td><input class="btn" type="button" value="."></td>
-                    <td><input class="btn" type="button" value="="></td>
+                    <td><input class="btn" type="button" value="." onclick="insert('.')"></td>
+                    <td><input class="btn" type="button" value="=" onclick="equal()"></td>
                 </tr>
             </table>
         </div>
